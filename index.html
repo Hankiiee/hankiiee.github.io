@@ -1,1 +1,48 @@
 "Hello World" 
+<input type="text" id="myText" value="Some text...">
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+<table id="myTable">
+    <thead>
+      <tr>
+        <th>Match</th>
+        <th>Odds 1</th>
+        <th>Odds x</th>
+        <th>Odds 2</th>
+        <th>Sverige 1</th>
+        <th>Sverige x</th>
+        <th>Sverige 2</th>
+      </tr>
+    </thead>
+    <tbody id="testBody"></tbody>
+  </table>
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("myText").value;
+      var obj = JSON.parse(x);
+      const table = document.getElementById("testBody");
+      console.log(obj.matches)
+      obj.matches.forEach((match) => {
+          console.log(match)
+        let row = table.insertRow()
+        let name = row.insertCell(0);
+        name.innerHTML = match.name;
+        name = row.insertCell(1);
+        name.innerHTML = match.odds.home;      
+        name = row.insertCell(2);
+        name.innerHTML = match.odds.draw;
+        name = row.insertCell(3);
+        name.innerHTML = match.odds.away;     
+        name = row.insertCell(4);
+        name.innerHTML = match.distribution.home;      
+        date = row.insertCell(5);
+        date.innerHTML = match.distribution.draw;
+        name = row.insertCell(6);
+        name.innerHTML = match.distribution.away;   
+    })
+      console.log(obj)
+      console.log(obj.id)
+      document.getElementById("demo").innerHTML = obj.id;
+    }
+</script>
