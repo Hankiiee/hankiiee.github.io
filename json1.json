@@ -1,0 +1,281 @@
+{
+        "id": 1609,
+        "label": "Stryktipset v. 2021-19",
+        "type": "stryktipset",
+        "svenskaspel_id": 4689,
+        "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689",
+        "matches": [
+            {
+                "roundmatch_id": 15418,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/1",
+                "distribution": {
+                    "home": 58,
+                    "away": 20,
+                    "draw": 22
+                },
+                "name": "Chelsea-Leicester",
+                "start_time": "2021-05-15T18:15:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 1.88,
+                    "draw": 3.59,
+                    "away": 4.2
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            },
+            {
+                "roundmatch_id": 15419,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/2",
+                "distribution": {
+                    "home": 27,
+                    "away": 49,
+                    "draw": 24
+                },
+                "name": "Brighton-West Ham",
+                "start_time": "2021-05-15T21:00:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 2.98,
+                    "draw": 3.54,
+                    "away": 2.39
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            },
+            {
+                "roundmatch_id": 15420,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/3",
+                "distribution": {
+                    "home": 68,
+                    "away": 15,
+                    "draw": 17
+                },
+                "name": "Southampton-Fulham",
+                "start_time": "2021-05-15T16:00:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 2.03,
+                    "draw": 3.64,
+                    "away": 3.71
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            },
+            {
+                "roundmatch_id": 15421,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/4",
+                "distribution": {
+                    "home": 44,
+                    "away": 29,
+                    "draw": 27
+                },
+                "name": "Juventus-Inter",
+                "start_time": "2021-05-15T18:00:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 2.14,
+                    "draw": 3.74,
+                    "away": 3.19
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            },
+            {
+                "roundmatch_id": 15422,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/5",
+                "distribution": {
+                    "home": 33,
+                    "away": 38,
+                    "draw": 29
+                },
+                "name": "Roma-Lazio",
+                "start_time": "2021-05-15T20:45:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 3.1,
+                    "draw": 3.56,
+                    "away": 2.26
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            },
+            {
+                "roundmatch_id": 15423,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/6",
+                "distribution": {
+                    "home": 56,
+                    "away": 21,
+                    "draw": 23
+                },
+                "name": "Benfica-Sporting Lissabon",
+                "start_time": "2021-05-15T19:00:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 1.86,
+                    "draw": 3.33,
+                    "away": 3.74
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            },
+            {
+                "roundmatch_id": 15424,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/7",
+                "distribution": {
+                    "home": 51,
+                    "away": 23,
+                    "draw": 26
+                },
+                "name": "Anderlecht-Genk",
+                "start_time": "2021-05-15T20:45:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 1.99,
+                    "draw": 3.59,
+                    "away": 3.1
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            },
+            {
+                "roundmatch_id": 15425,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/8",
+                "distribution": {
+                    "home": 66,
+                    "away": 13,
+                    "draw": 21
+                },
+                "name": "Helsingborgs IF-Östers IF",
+                "start_time": "2021-05-15T17:00:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 1.84,
+                    "draw": 3.65,
+                    "away": 4.35
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            },
+            {
+                "roundmatch_id": 15426,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/9",
+                "distribution": {
+                    "home": 82,
+                    "away": 8,
+                    "draw": 10
+                },
+                "name": "Brommapojkarna-Hudiksvalls Förenade FF",
+                "start_time": "2021-05-15T17:30:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 1.17,
+                    "draw": 7.25,
+                    "away": 12.4
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            },
+            {
+                "roundmatch_id": 15427,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/10",
+                "distribution": {
+                    "home": 61,
+                    "away": 17,
+                    "draw": 22
+                },
+                "name": "Gefle IF FF-IFK Haninge",
+                "start_time": "2021-05-15T19:00:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 1.86,
+                    "draw": 3.62,
+                    "away": 3.46
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            },
+            {
+                "roundmatch_id": 15428,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/11",
+                "distribution": {
+                    "home": 58,
+                    "away": 19,
+                    "draw": 23
+                },
+                "name": "Örebro Syrianska IF-Täby FK",
+                "start_time": "2021-05-15T16:00:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 2.18,
+                    "draw": 3.36,
+                    "away": 2.87
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            },
+            {
+                "roundmatch_id": 15429,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/12",
+                "distribution": {
+                    "home": 49,
+                    "away": 25,
+                    "draw": 26
+                },
+                "name": "Assyriska IK-Åtvidabergs FF",
+                "start_time": "2021-05-15T16:00:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 1.82,
+                    "draw": 3.79,
+                    "away": 3.55
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            },
+            {
+                "roundmatch_id": 15430,
+                "svenskaspel_url": "http://clk.tradedoubler.com/click?p=295103&a=3165053&g=24466066&url=https://spela.svenskaspel.se/stryktipset/spela/1_4689/13",
+                "distribution": {
+                    "home": 44,
+                    "away": 29,
+                    "draw": 27
+                },
+                "name": "Lunds BK-Vänersborgs IF",
+                "start_time": "2021-05-15T16:00:00+02:00",
+                "content": [],
+                "odds": {
+                    "home": 2.17,
+                    "draw": 3.55,
+                    "away": 2.87
+                },
+                "has_content_types": [
+                    "roundmatch_analysis"
+                ]
+            }
+        ],
+        "content": [
+            13460
+        ],
+        "close_time": "2021-05-15T15:59:00+02:00",
+        "turnover": null,
+        "payout_13": null,
+        "payout_12": null,
+        "payout_11": null,
+        "payout_10": null,
+        "payout_8": null,
+        "access": 1,
+        "show_paywall": "not_logged_in"
+}

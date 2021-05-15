@@ -2,47 +2,132 @@
 <input type="text" id="myText" value="Some text...">
 <button onclick="myFunction()">Try it</button>
 <p id="demo"></p>
-<table id="myTable">
-    <thead>
-      <tr>
-        <th>Match</th>
-        <th>Odds 1</th>
-        <th>Odds x</th>
-        <th>Odds 2</th>
-        <th>Sverige 1</th>
-        <th>Sverige x</th>
-        <th>Sverige 2</th>
-      </tr>
-    </thead>
-    <tbody id="testBody"></tbody>
-  </table>
 
+<table id="myTable">
+  <thead>
+    <tr>
+      <th>Starttid</th>
+      <th>Match</th>
+      <th colspan="3">Odds</th>
+      <th colspan="3">Svenska folkets</th>
+      <th colspan="3">Sannolikhet enl odds</th>
+      <th colspan="3">Översträckning</th>
+      <th colspan="3">Riskjusterad Översträckning</th>
+    </tr>
+  </thead>
+  <!-- <div id="tableWrapper"> -->
+    <tbody id="testBody"></tbody>
+  <!-- </div> -->
+  </table>
+  
 <script>
+  var games = []
     function myFunction() {
       var x = document.getElementById("myText").value;
       var obj = JSON.parse(x);
+      obj = obj[0]
       const table = document.getElementById("testBody");
+      if(!games.length == 0){
+        console.log("games: ", games)
+        calculate(games)
+        table.innerHTML = "";
+      }
       console.log(obj.matches)
-      obj.matches.forEach((match) => {
+      games = populate(obj, games)
+      var index = 0;
+      games.forEach((match) => {
           console.log(match)
         let row = table.insertRow()
         let name = row.insertCell(0);
-        name.innerHTML = match.name;
+        name.innerHTML = match.start_time.slice(11,16);  
         name = row.insertCell(1);
-        name.innerHTML = match.odds.home;      
+        name.innerHTML = match.name;
         name = row.insertCell(2);
-        name.innerHTML = match.odds.draw;
+        name.innerHTML = '<input type="number" id="' + index + '|' + 1 + '" value ="'+ match.input1 +'" /> ';      
         name = row.insertCell(3);
-        name.innerHTML = match.odds.away;     
+        name.innerHTML = '<input type="number" id="' + index + '|' + 'x' + '" value ="'+ match.inputx +'" /> ';
         name = row.insertCell(4);
-        name.innerHTML = match.distribution.home;      
-        date = row.insertCell(5);
-        date.innerHTML = match.distribution.draw;
-        name = row.insertCell(6);
-        name.innerHTML = match.distribution.away;   
+        name.innerHTML = '<input type="number" id="' + index + '|' + 2 + '" value ="'+ match.input2 +'" /> ';   
+        name = row.insertCell(5);
+        name.innerHTML = match.home + '%';      
+        date = row.insertCell(6);
+        date.innerHTML = match.draw + '%';
+        name = row.insertCell(7);
+        name.innerHTML = match.away + '%';
+        name = row.insertCell(8);
+        name.innerHTML = (match.prob1*100)?.toFixed(2); + '%'
+        name = row.insertCell(9);
+        name.innerHTML = (match.probx*100)?.toFixed(2); + '%'
+        name = row.insertCell(10);
+        name.innerHTML = (match.prob2*100)?.toFixed(2); + '%'
+        name = row.insertCell(11);
+        name.innerHTML = (match.over1*100)?.toFixed(2); + '%'
+        name = row.insertCell(12);
+        name.innerHTML = (match.overx*100)?.toFixed(2); + '%'
+        name = row.insertCell(13);
+        name.innerHTML = (match.over2*100)?.toFixed(2); + '%'
+        name = row.insertCell(14);
+        name.innerHTML = match.adj1?.toFixed(2); + '%'
+        name = row.insertCell(15);
+        name.innerHTML = match.adjx?.toFixed(2); + '%'
+        name = row.insertCell(16);
+        name.innerHTML = match.adj2?.toFixed(2); + '%'
+        index++;  
     })
       console.log(obj)
       console.log(obj.id)
       document.getElementById("demo").innerHTML = obj.id;
     }
+  function populate(obj, games){
+    var i = 0;
+    var game = {}
+    obj.matches.forEach((match) => {
+      if(!games[i]){
+        game = {}
+        game.input1=0
+        game.inputx=0
+        game.input2=0
+        games.push(JSON.parse(JSON.stringify(game)))
+      }
+      games[i].name = match.name;
+      games[i].home = match.distribution.home;
+      games[i].draw = match.distribution.draw;
+      games[i].away = match.distribution.away;
+      games[i].start_time = match.start_time;
+      i++;
+    })
+    return games;
+    console.log("populated: " , games)
+  }
+
+  function calculate(games){
+    var index = 0
+    var ratio = 0
+    games.forEach((game) => {
+
+      game.input1 = document.getElementById(index + '|' + 1).value
+      game.inputx = document.getElementById(index + '|' + 'x').value
+      game.input2 = document.getElementById(index + '|' + 2).value
+      ratio = 100/((100/game.input1)+(100/game.inputx)+(100/game.input2))
+      game.prob1 = ratio/game.input1
+      game.probx = ratio/game.inputx
+      game.prob2 = ratio/game.input2
+      game.over1 = game.home/100 - game.prob1
+      game.overx = game.draw/100 - game.probx
+      game.over2 = game.away/100 - game.prob2
+      game.adj1 = ((1-game.prob1)*game.over1)*100
+      game.adjx = ((1-game.probx)*game.overx)*100
+      game.adj2 = ((1-game.prob2)*game.over2)*100
+      index++;
+    })
+  }
 </script>
+
+<style>
+  tr:nth-child(even){
+    background-color: blanchedalmond;
+  }
+  input {
+    width: 50px;
+  }
+</style>
