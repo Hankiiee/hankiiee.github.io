@@ -2,7 +2,8 @@
 <input type="text" id="myText" value="Some text...">
 <button onclick="myFunction()">Try it</button>
 <p id="demo"></p>
-
+<a href="https://www.overodds.se/stryktipset" target="_blank">Stryktipset</a>
+<a href="https://www.overodds.se/europatipset" target="_blank">Europatipset</a>
 <table id="myTable">
   <thead>
     <tr>
@@ -55,23 +56,23 @@
         name = row.insertCell(7);
         name.innerHTML = match.away + '%';
         name = row.insertCell(8);
-        name.innerHTML = (match.prob1*100)?.toFixed(2); + '%'
+        name.innerHTML = (match.prob1*100)?.toFixed(2) + '%'
         name = row.insertCell(9);
-        name.innerHTML = (match.probx*100)?.toFixed(2); + '%'
+        name.innerHTML = (match.probx*100)?.toFixed(2) + '%'
         name = row.insertCell(10);
-        name.innerHTML = (match.prob2*100)?.toFixed(2); + '%'
+        name.innerHTML = (match.prob2*100)?.toFixed(2) + '%'
         name = row.insertCell(11);
-        name.innerHTML = (match.over1*100)?.toFixed(2); + '%'
+        name.innerHTML = (match.over1*100)?.toFixed(2) + '%'
         name = row.insertCell(12);
-        name.innerHTML = (match.overx*100)?.toFixed(2); + '%'
+        name.innerHTML = (match.overx*100)?.toFixed(2) + '%'
         name = row.insertCell(13);
-        name.innerHTML = (match.over2*100)?.toFixed(2); + '%'
+        name.innerHTML = (match.over2*100)?.toFixed(2) + '%'
         name = row.insertCell(14);
-        name.innerHTML = match.adj1?.toFixed(2); + '%'
+        name.innerHTML = "<span style='background-color: "+ match.color1 +";'>" + match.adj1?.toFixed(2) + '%' + "</span>";
         name = row.insertCell(15);
-        name.innerHTML = match.adjx?.toFixed(2); + '%'
+        name.innerHTML = "<span style='background-color: "+ match.colorx +";'>" + match.adjx?.toFixed(2) + '%' + "</span>";
         name = row.insertCell(16);
-        name.innerHTML = match.adj2?.toFixed(2); + '%'
+        name.innerHTML = "<span style='background-color: "+ match.color2 +";'>" + match.adj2?.toFixed(2) + '%' + "</span>";
         index++;  
     })
       console.log(obj)
@@ -118,14 +119,33 @@
       game.adj1 = ((1-game.prob1)*game.over1)*100
       game.adjx = ((1-game.probx)*game.overx)*100
       game.adj2 = ((1-game.prob2)*game.over2)*100
+      // game.color1 = color(game.adj1)
+      // game.colorx = color(game.adjx)
+      // game.color2 = color(game.adj2)
+      game.color1 = "#ffffff"
+      game.colorx = "#ffffff"
+      game.color2 = "#ffffff"
       index++;
     })
+  }
+  function color(adj){
+    var color = ""
+    var grad = (Math.abs(adj)*5)
+    if (grad >= 255){
+      grad = 255;
+    }
+    if(adj >= 0 ){
+      color = "#00" + Math.round(grad).toString(16) + "00"
+    }else{
+      color = "#"+ Math.round(grad).toString(16) + "0000"
+    }
+    return color
   }
 </script>
 
 <style>
   tr:nth-child(even){
-    background-color: blanchedalmond;
+    background-color: #ffffcc;
   }
   input {
     width: 50px;
