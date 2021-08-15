@@ -28,6 +28,7 @@
       var obj = JSON.parse(x);
       obj = obj[0]
       const table = document.getElementById("testBody");
+      table.style.borderCollapse = "collapse";
       if(!games.length == 0){
         console.log("games: ", games)
         calculate(games)
@@ -50,31 +51,43 @@
         name = row.insertCell(4);
         name.innerHTML = '<input type="number" id="' + index + '|' + 2 + '" value ="'+ match.input2 +'" /> ';   
         name = row.insertCell(5);
-        name.innerHTML = match.home + '%';      
+        name.style.borderLeft = "3px solid black"
+        name.innerHTML = match.home + '%';   
         date = row.insertCell(6);
         date.innerHTML = match.draw + '%';
         name = row.insertCell(7);
         name.innerHTML = match.away + '%';
         name = row.insertCell(8);
-        name.innerHTML = (match.prob1*100)?.toFixed(2) + '%'
+        name.style.borderLeft = "3px solid black"
+        name.innerHTML = (match.prob1*100)?.toFixed(2) + '%';
         name = row.insertCell(9);
         name.innerHTML = (match.probx*100)?.toFixed(2) + '%'
         name = row.insertCell(10);
         name.innerHTML = (match.prob2*100)?.toFixed(2) + '%'
         name = row.insertCell(11);
-        name.innerHTML = (match.over1*100)?.toFixed(2) + '%'
+        name.style.borderLeft = "3px solid black"
+        name.style.backgroundColor = match.color1o
+        name.innerHTML = (match.over1*100)?.toFixed(2) + '%';
         name = row.insertCell(12);
+        name.style.backgroundColor = match.colorxo
         name.innerHTML = (match.overx*100)?.toFixed(2) + '%'
         name = row.insertCell(13);
+        name.style.backgroundColor = match.color2o
         name.innerHTML = (match.over2*100)?.toFixed(2) + '%'
         name = row.insertCell(14);
-        name.innerHTML = "<span style='background-color: "+ match.color1 +";'>" + match.adj1?.toFixed(2) + '%' + "</span>";
+        name.style.borderLeft = "3px solid black"
+        name.style.backgroundColor = match.color1
+        name.innerHTML =  match.adj1?.toFixed(2) + '%';
         name = row.insertCell(15);
-        name.innerHTML = "<span style='background-color: "+ match.colorx +";'>" + match.adjx?.toFixed(2) + '%' + "</span>";
+        name.style.backgroundColor = match.colorx
+        name.innerHTML = match.adjx?.toFixed(2) + '%';
         name = row.insertCell(16);
-        name.innerHTML = "<span style='background-color: "+ match.color2 +";'>" + match.adj2?.toFixed(2) + '%' + "</span>";
+        name.style.backgroundColor = match.color1o
+        name.style.borderRight = "3px solid black"
+        name.innerHTML = match.adj2?.toFixed(2) + '%';
         index++;  
     })
+    // style='border-right: 3px solid black; 
       console.log(obj)
       console.log(obj.id)
       document.getElementById("demo").innerHTML = obj.id;
@@ -119,26 +132,50 @@
       game.adj1 = ((1-game.prob1)*game.over1)*100
       game.adjx = ((1-game.probx)*game.overx)*100
       game.adj2 = ((1-game.prob2)*game.over2)*100
-      // game.color1 = color(game.adj1)
-      // game.colorx = color(game.adjx)
-      // game.color2 = color(game.adj2)
-      game.color1 = "#ffffff"
-      game.colorx = "#ffffff"
-      game.color2 = "#ffffff"
+      game.color1 = color(game.adj1, "adj")
+      game.colorx = color(game.adjx, "adj")
+      game.color2 = color(game.adj2, "adj")
+      game.color1o = color(game.over1, "over")
+      game.colorxo = color(game.overx, "over")
+      game.color2o = color(game.over2, "over")
+      // game.color1 = "#ffffff"
+      // game.colorx = "#ffffff"
+      // game.color2 = "#ffffff"
       index++;
     })
   }
-  function color(adj){
+  function color(adj, type){
     var color = ""
-    var grad = (Math.abs(adj)*5)
-    if (grad >= 255){
-      grad = 255;
+    if (type === "over"){
+    adj*=100
+    if(adj <= -6){
+      color = "#03fc84"
+      if(adj <= -9.5){
+        color = "#339e6a"
+      }
+    }else if (adj >= 6){
+        color = "#ff9640"
+      if(adj <= 9.5){
+      color = "#ff3636"
+      }
     }
-    if(adj >= 0 ){
-      color = "#00" + Math.round(grad).toString(16) + "00"
-    }else{
-      color = "#"+ Math.round(grad).toString(16) + "0000"
+    }else {
+      if (adj >= 4.5){
+        color = "#ff9640"
+      if(adj <= 7.5){
+      color = "#ff3636"
+      }
+    } 
     }
+    // var grad = (Math.abs(adj)*5)
+    // if (grad >= 255){
+    //   grad = 255;
+    // }
+    // if(adj >= 0 ){
+    //   color = "#00" + Math.round(grad).toString(16) + "00"
+    // }else{
+    //   color = "#"+ Math.round(grad).toString(16) + "0000"
+    // }
     return color
   }
 </script>
@@ -150,4 +187,25 @@
   input {
     width: 50px;
   }
+  table {
+	border-collapse:collapse;
+	padding-top:0;
+	padding-bottom:0;
+}
 </style>
+<!-- Färgerna:
+På Överstreckning:
+< 6% ljusgrön
+< 9,5% mörkgrön
+6% orange
+9,5% röd
+
+På Riskjust. överstreckning:
+4,5% orange
+7,5% röd -->
+
+<!-- Mindre viktigt, men en idé hade också kunnat vara att ha fetstil på det som är intressant. 
+  Typ bold på allt utom det som är +/-4 % -->
+  <!-- Har inte haft några problem med kalkylerna, det som hade varit nice är lite färg, 
+    och att det går att skilja kolumnerna åt. Just nu är det lite svårt att se så många 
+    siffror ihop. -->
