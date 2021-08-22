@@ -59,11 +59,11 @@
         name.innerHTML = match.away + '%';
         name = row.insertCell(8);
         name.style.borderLeft = "3px solid black"
-        name.innerHTML = (match.prob1*100)?.toFixed(2) + '%';
+        name.innerHTML = (match.prob1*100)?.toFixed(1) + '%';
         name = row.insertCell(9);
-        name.innerHTML = (match.probx*100)?.toFixed(2) + '%'
+        name.innerHTML = (match.probx*100)?.toFixed(1) + '%'
         name = row.insertCell(10);
-        name.innerHTML = (match.prob2*100)?.toFixed(2) + '%'
+        name.innerHTML = (match.prob2*100)?.toFixed(1) + '%'
         name = row.insertCell(11);
         name.style.borderLeft = "3px solid black"
         name.style.backgroundColor = match.color1o
