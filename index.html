@@ -82,7 +82,7 @@
         name.style.backgroundColor = match.colorx
         name.innerHTML = match.adjx?.toFixed(2) + '%';
         name = row.insertCell(16);
-        name.style.backgroundColor = match.color1o
+        name.style.backgroundColor = match.color2
         name.style.borderRight = "3px solid black"
         name.innerHTML = match.adj2?.toFixed(2) + '%';
         index++;  
@@ -159,10 +159,10 @@
       color = "#ff3636"
       }
     }
-    }else {
+    }else if (type === "adj") {
       if (adj >= 4.5){
         color = "#ff9640"
-      if(adj <= 7.5){
+      if(adj >= 7.5){
       color = "#ff3636"
       }
     } 
