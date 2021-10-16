@@ -1,12 +1,60 @@
-"Hello World" 
-<input type="text" id="myText" value="Some text...">
-<button onclick="myFunction()">Try it</button>
+<h1>Har den äran Andreas!</h1> 
 <p id="demo"></p>
 <a href="https://www.overodds.se/stryktipset" target="_blank">Stryktipset</a>
 <a href="https://www.overodds.se/europatipset" target="_blank">Europatipset</a>
-<table id="myTable">
+<table class="handicap" id="anotherTable">
   <thead>
     <tr>
+      <th>Handikap</th>
+      <th>Insats</th>
+      <th>Odds vinst</th>
+      <th>Odds oavgjort</th>
+      <th>Odds handikap</th>
+      <th>Insats vinst</th>
+      <th>Instats oavgjort</th>
+    </tr>
+    <tr>
+      <th>
+        <select name="handicap" id="handicap">
+          <option value="neg">-0,25</option>
+          <option value="zero">+0</option>
+          <option value="pos">+0,25</option>
+          <option value="dpos">+0,5</option>
+        </select>
+      </th>
+      <th>
+        <input type="number" id="bet" value=0>
+      </th>
+      <th>
+        <input type="number" id="win" value=0>
+      </th>
+      <th>
+        <input type="number" id="tie" value=0>
+      </th>
+      <th>
+        <p id="betWin"></p>
+      </th>
+      <th>
+        <p id="betTie"></p>
+      </th>
+      <th>
+        <p id="odds"></p>
+      </th>
+      
+    </tr>
+  </thead>
+</table>
+<button onclick="handicap()">Calculate</button>
+<br>
+<br>
+<input type="text" id="myText" value="Some text...">
+<button onclick="myFunction()">Try it</button>
+<!-- <div id="tableWrapper"> -->
+  <tbody id="testBody"></tbody>
+  <!-- </div> -->
+  <table id="myTable">
+    <thead>
+      <tr>
       <th>Starttid</th>
       <th>Match</th>
       <th colspan="3">Odds</th>
@@ -178,6 +226,47 @@
     // }
     return color
   }
+
+  function handicap(){
+    var handicap = document.getElementById("handicap").value;
+    var bet = document.getElementById("bet").value;
+    var win = document.getElementById("win").value;
+    var tie = document.getElementById("tie").value;
+    // <option value="neg">-0,25</option>
+    //       <option value="zero">+0</option>
+    //       <option value="pos">+0,25</option>
+    //       <option value="dpos">+0,5</option>
+    var betTie = 0
+    var betWin = 0
+    var odds = 0
+    var betWin05 = bet/((win +1)/(tie + win)+1)
+    var betTie05 = (bet - betWin05)
+    var odds05 = ((win * betWin05) + (betTie05*betTie05))/(bet * 2)
+    var betTie0 = bet / tie 
+    var betWin0 = bet - betTie0
+    var odds0 = (betWin0*win)/bet
+    if(handicap == "neg"){
+      betTie = (bet/2) / tie
+      betWin = bet - betTie
+      odds = (betWin * win) / bet
+    }else if(handicap == "zero"){
+      betTie = betTie0 
+      betWin = betWin0
+      odds = odds0
+    }else if(handicap == "pos"){
+      betTie = (betTie05 + betTie0)/2
+      betWin = (betWin05 + betWin0)/2
+      odds = (odds0+odds05)/2
+      //odds = (((bet - (bet / tie)*win)/bet + ((win * bet/((win +1)/(tie + win)+1))) + ((bet - (bet/((win +1)/(tie + win)+1))))*(bet - (bet/((win +1)/(tie + win)+1))))/(bet * 2))/2 // saknar odds för 0.5 och /2
+    }else if(handicap == "dpos"){
+      betWin = betWin05
+      betTie = betTie05
+      odds = odds05
+    }
+    document.getElementById("betWin").innerHTML = betWin?.toFixed(2);
+    document.getElementById("betTie").innerHTML = betTie?.toFixed(2);
+    document.getElementById("odds").innerHTML = odds?.toFixed(2);
+  }
 </script>
 
 <style>
@@ -191,6 +280,11 @@
 	border-collapse:collapse;
 	padding-top:0;
 	padding-bottom:0;
+}
+.handicap th{
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+  width: 130px;
 }
 </style>
 <!-- Färgerna:
