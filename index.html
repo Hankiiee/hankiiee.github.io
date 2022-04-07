@@ -1,5 +1,4 @@
 <h1>AndreasTipset</h1> 
-<p id="demo"></p>
 <div class="center">
   <a href="https://www.overodds.se/stryktipset" target="_blank">Stryktipset</a>
   <a href="https://www.overodds.se/europatipset" target="_blank">Europatipset</a>
@@ -16,33 +15,32 @@
       <th>Odds handikap</th>
     </tr>
     <tr>
-      <th>
+      <td>
         <select name="handicap" id="handicap">
           <option value="neg">-0,25</option>
           <option value="zero">+0</option>
           <option value="pos">+0,25</option>
           <option value="dpos">+0,5</option>
         </select>
-      </th>
-      <th>
+      </td>
+      <td>
         <input type="number" id="bet" value=0>
-      </th>
-      <th>
+      </td>
+      <td>
         <input type="number" id="win" value=0>
-      </th>
-      <th>
+      </td>
+      <td>
         <input type="number" id="tie" value=0>
-      </th>
-      <th>
+      </td>
+      <td>
         <p id="betWin"></p>
-      </th>
-      <th>
+      </td>
+      <td>
         <p id="betTie"></p>
-      </th>
-      <th>
+      </td>
+      <td>
         <p id="odds"></p>
-      </th>
-      
+      </td>
     </tr>
   </thead>
 </table>
@@ -144,7 +142,6 @@
     // style='border-right: 3px solid black; 
       console.log(obj)
       console.log(obj.id)
-      document.getElementById("demo").innerHTML = obj.id;
     }
   function populate(obj, games){
     var i = 0;
@@ -299,6 +296,10 @@
   }
   tr:nth-child(odd){
     background-color: #e7edee;
+  }
+  th{
+    background-color:rgb(213, 0, 0);
+    color: white;
   }
   input {
     width: 50px;
